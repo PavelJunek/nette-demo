@@ -1,0 +1,13 @@
+parameters:
+
+
+dbal:
+	driver: 'mysqli'
+	host: 'localhost'
+	database: 'database_name'
+	username: 'database_username'
+	password: 'database_password'
+	charset: 'utf8'
+#	applicationTz: 'Europe/Prague'
+#	connectionTz: 'Europe/Prague'
+#	simpleStorageTz: 'Europe/Prague'

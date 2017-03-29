@@ -1,0 +1,11 @@
+{block content}
+
+<article n:foreach="$posts as $post">
+	<h2>{$post->title}</h2>
+	<p>{$post->date|date:'j.n.Y'}</p>
+	<div>{$post->body|noescape}</div>
+</article>
+
+<p n:if="$paginator->pageCount > 1">
+	<a n:href="this, p => $i" n:for="$i = $paginator->firstPage; $i <= $paginator->lastPage; ++$i">{$i}</a>
+</p>
