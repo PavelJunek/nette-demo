@@ -18,30 +18,20 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace App;
+namespace App\Model;
 
-use Nette\Application\IRouter;
-use Nette\Application\Routers\Route;
-use Nette\Application\Routers\RouteList;
-use Nette\StaticClass;
+use Nextras\Orm\Entity\Entity;
 
-class RouterFactory
+/**
+ * Třída reprezentující uživatele.
+ *
+ * @property-read int $id {primary}
+ * @property string $username
+ * @property string $passwordHash
+ *
+ * @author Pavel Junek
+ */
+class User extends Entity
 {
-
-	use StaticClass;
-
-	/**
-	 * @return IRouter
-	 */
-	public static function createRouter()
-	{
-		$router = new RouteList;
-		$router[] = new Route('stitek/<name>', [
-			'presenter' => 'Homepage',
-			'action' => 'tag',
-		]);
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
-		return $router;
-	}
 
 }

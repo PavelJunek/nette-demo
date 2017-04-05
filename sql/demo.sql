@@ -36,4 +36,16 @@ CREATE TABLE `tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
--- 2017-03-29 17:54:45
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+INSERT INTO `user` (`id`, `username`, `password_hash`) VALUES
+(1,	'admin',	'$2y$10$Az8Wrs0wAYyoEIUqg6K0suCNKNMa8UzLcSiB1jT1nwtF24YX2uz7W');
+
+-- 2017-04-05 10:10:27

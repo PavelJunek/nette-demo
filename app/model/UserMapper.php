@@ -18,30 +18,18 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace App;
+namespace App\Model;
 
-use Nette\Application\IRouter;
-use Nette\Application\Routers\Route;
-use Nette\Application\Routers\RouteList;
-use Nette\StaticClass;
+use Nextras\Orm\Mapper\Mapper;
 
-class RouterFactory
+/**
+ * Třída propojující uživatele s databází.
+ *
+ * @author Pavel Junek
+ */
+class UserMapper extends Mapper
 {
 
-	use StaticClass;
-
-	/**
-	 * @return IRouter
-	 */
-	public static function createRouter()
-	{
-		$router = new RouteList;
-		$router[] = new Route('stitek/<name>', [
-			'presenter' => 'Homepage',
-			'action' => 'tag',
-		]);
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
-		return $router;
-	}
+	protected $tableName = 'user';
 
 }

@@ -20,6 +20,7 @@
 
 namespace App\Presenters;
 
+use Nette\Http\Response;
 use Nette\Utils\Paginator;
 
 /**
@@ -46,6 +47,31 @@ class HomepagePresenter extends BasePresenter
 		$paginator->setItemCount($posts->countStored());
 		$paginator->setPage($p ?: 1);
 
+		$this->template->posts = $posts->limitBy($paginator->getLength(), $paginator->getOffset());
+		$this->template->paginator = $paginator;
+	}
+
+	/**
+	 * Zobrazí výpiš článků se zadaným štítkem.
+	 *
+	 * @param string $name
+	 * @param int|NULL $p
+	 */
+	public function renderTag($name, $p = NULL)
+	{
+		$tag = $this->orm->tags->getBy(['name' => $name]);
+		if (!$tag) {
+			$this->error('Štítek nenalezen', Response::S404_NOT_FOUND);
+		}
+
+		$posts = $tag->posts->get()->orderBy('date', 'DESC');
+
+		$paginator = new Paginator();
+		$paginator->setItemsPerPage(self::POSTS_PER_PAGE);
+		$paginator->setItemCount($posts->countStored());
+		$paginator->setPage($p ?: 1);
+
+		$this->template->tag = $tag;
 		$this->template->posts = $posts->limitBy($paginator->getLength(), $paginator->getOffset());
 		$this->template->paginator = $paginator;
 	}

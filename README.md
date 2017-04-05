@@ -14,3 +14,5 @@ Jednoduché blogovadlo vytvořené v Nette.
 5. Nastavte adresář www jako kořenový adresář svého web serveru. Alternativně ho můžete připojit jako podadresář např. pomocí liků (na Unixu např. ln -s cesta-k-projektu/www demo). V tom případě upravte soubor www/.htaccess tak, aby obsahovat řádek RewriteBase /demo (nebo jiný název, podle toho, jak jste pojmenovali odkaz).
 
 6. Spusťte prohlížeč a vyzkoušejte na adrese http://localhost nebo http://localhost/demo (podle toho, kam jste ve web serveru projekt umístili).
+
+7. Pro přihlašování slouží uživatelské jméno "admin" a heslo "admin".

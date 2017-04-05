@@ -1,6 +1,7 @@
 extensions:
 	dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
 	orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+	nextras.form: Nextras\Forms\Bridges\NetteDI\FormsExtension
 
 
 parameters:
@@ -21,4 +22,5 @@ orm:
 
 
 services:
+	authenticator: App\Model\UserManager
 	router: App\RouterFactory::createRouter

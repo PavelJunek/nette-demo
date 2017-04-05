@@ -1,5 +1,7 @@
 {block content}
 
+<h2 n:block="title">{$tag->name}</h2>
+
 <article n:foreach="$posts as $post">
 	<h2>{$post->title}</h2>
 

@@ -18,30 +18,24 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace App;
+namespace App\Model;
 
-use Nette\Application\IRouter;
-use Nette\Application\Routers\Route;
-use Nette\Application\Routers\RouteList;
-use Nette\StaticClass;
+use Nextras\Orm\Repository\Repository;
 
-class RouterFactory
+/**
+ * Třída poskytující metody pro čtení uživatelů.
+ *
+ * @author Pavel Junek
+ */
+class UserRepository extends Repository
 {
 
-	use StaticClass;
-
 	/**
-	 * @return IRouter
+	 * @return array
 	 */
-	public static function createRouter()
+	public static function getEntityClassNames()
 	{
-		$router = new RouteList;
-		$router[] = new Route('stitek/<name>', [
-			'presenter' => 'Homepage',
-			'action' => 'tag',
-		]);
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
-		return $router;
+		return [User::class];
 	}
 
 }

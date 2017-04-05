@@ -28,6 +28,7 @@ use Nextras\Orm\Model\Model;
  *
  * @property-read PostRepository $posts
  * @property-read TagRepository $tags
+ * @property-read UserRepository $users
  *
  * @author Pavel Junek
  */

@@ -8,6 +8,11 @@
 	</head>
 
 	<body>
+		<h1>Moje stránka</h1>
+
+		<p n:if="$user->loggedIn"><a n:href="User:logout">Odhlásit se</a></p>
+		<p n:if="!$user->loggedIn"><a n:href="User:login">Přihlásit se</a></p>
+
 		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 		{include content}
